@@ -67,6 +67,13 @@ final class IdentityMapTest extends TestCase
             [ SomeEntity::class, [1, 'a'], new SomeEntity(), ],
             [ SomeEntity::class, ['b', 'a'], new SomeEntity(), ],
             [ SomeEntity::class, ['b', new EntityId('a')], new SomeEntity(), ],
+            [ SomeEntity::class,  [KeyString::PartOne, KeyString::PartTwo], new SomeEntity(), ],
+            [ SomeEntity::class,  ['part1', KeyString::PartTwo], new SomeEntity(), ],
+            [ SomeEntity::class,  [KeyString::PartOne, 'part2'], new SomeEntity(), ],
+            [ SomeEntity::class,  KeyString::PartOne, new SomeEntity(), ],
+            [ SomeEntity::class,  [1, KeyInteger::PartTwo], new SomeEntity(), ],
+            [ SomeEntity::class,  [KeyInteger::PartOne, 2], new SomeEntity(), ],
+            [ SomeEntity::class,  KeyInteger::PartOne, new SomeEntity(), ],
         ];
     }
 
@@ -100,4 +107,16 @@ final class EntityId {
     {
         return (string)$this->value;
     }
+}
+
+enum KeyString: string
+{
+    Case PartOne = 'part1';
+    case PartTwo = 'part2';
+}
+
+enum KeyInteger: int
+{
+    case PartOne = 1;
+    case PartTwo = 2;
 }

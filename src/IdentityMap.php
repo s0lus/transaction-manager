@@ -83,6 +83,10 @@ final class IdentityMap implements TransactionHandler
         switch (true) {
             case is_scalar($entityId):
             case is_object($entityId):
+                if ($entityId instanceof \BackedEnum) {
+                    return (string)$entityId->value;
+                }
+
                 return (string)$entityId;
             case is_array($entityId):
                 return implode('_', array_map(fn($part): string => $this->stringifyEntityId($part), $entityId));

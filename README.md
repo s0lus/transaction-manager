@@ -6,7 +6,6 @@
 [![Software License][badge-license]][license]
 [![PHP Version][badge-php]][php]
 [![Total Downloads][badge-downloads]][downloads]
-[![Build Status](https://travis-ci.org/sbooker/transaction-manager.svg?branch=2.x.x)](https://travis-ci.org/sbooker/transaction-manager)
 [![codecov](https://codecov.io/gh/sbooker/transaction-manager/branch/2.x.x/graph/badge.svg?token=3uCI9t0M2Q)](https://codecov.io/gh/sbooker/transaction-manager)
 
 Реализация паттерна Unit of Work, которая навязывает безопасные и явные практики управления транзакциями и предоставляет мощный механизм хуков перед коммитом.
